@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AngularNeo4jService} from 'angular-neo4j';
 const url = 'http://localhost:7474/';
 const username = 'neo4j';
-const password = 'neo';
+const password = 'test1234';
 const encrypted = true;
-const query = 'MATCH (n:USER {name: $name}) RETURN n';
-const params = {name: 'bob'};
+const query = 'MATCH (m:MOVIE) RETURN m limit 20';
+const params = null;
 @Component({
   selector: 'app-angular-neo4j',
   templateUrl: './angular-neo4j.component.html',
