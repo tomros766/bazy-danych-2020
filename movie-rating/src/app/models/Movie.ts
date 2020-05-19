@@ -13,7 +13,5 @@ export interface Movie {
   voteAvg: number;
   releaseDate: Date;
   genres: Array<Genre>;
-  director: CastMember;
-  writer: CastMember;
-  actors: Array<CastMember>;
+  people: Array<CastMember>;
 }
