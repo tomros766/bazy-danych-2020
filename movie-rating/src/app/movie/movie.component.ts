@@ -17,9 +17,4 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
   }
 
-  details(title: string): void {
-    this.service.getDetails(title);
-    this.router.navigate(['movie-details', title]);
-  }
-
 }

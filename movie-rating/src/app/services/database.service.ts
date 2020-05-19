@@ -20,12 +20,6 @@ export class DatabaseService {
     return this.neo4j.run(query, params).toArray.get('movieId');
   }
 
-  getDetails(id: number): void {
-    const query = 'match (g:Genre)--(m:Movie)--(p:Person) return distinct m,collect(distinct g),collect(distinct p)';
-    const params = {movie_id: id};
-    return this.neo4j.run(query, params);
-  }
-
   getMovies() {
     let movies = [];
     const query = 'match (g:Genre)--(m:Movie)--(p:Person) return m,' +

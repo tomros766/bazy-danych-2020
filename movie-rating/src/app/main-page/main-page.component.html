@@ -1,1 +1,6 @@
-<app-movie-list></app-movie-list>
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="filmy">Filmy</button>
+  <mat-menu #filmy="matMenu">
+   <a mat-menu-item routerLink="/ranking">Ranking TOP 100</a>
+  </mat-menu>
+</mat-toolbar>

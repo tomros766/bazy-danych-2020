@@ -17,8 +17,4 @@ export class MovieService {
     return this.movies;
   }
 
-  getDetails(title: string) {
-    return this.db.getDetails(this.db.getMovieId(title));
-  }
-
 }
