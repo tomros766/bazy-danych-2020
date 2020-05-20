@@ -12,7 +12,9 @@ export class MovieComponent implements OnInit {
 
   // tslint:disable-next-line:no-input-rename
   @Input('movie') movie: Movie;
+
   constructor(private service: MovieService, private router: Router) { }
+
 
   ngOnInit() {
   }

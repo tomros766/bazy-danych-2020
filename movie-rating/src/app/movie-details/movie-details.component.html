@@ -1,1 +1,21 @@
-<p>movie-details works!</p>
+<mat-toolbar>
+  <button mat-button routerLink="/main-page">Wróć</button>
+</mat-toolbar>
+
+<div id="wrapper">
+  <img src="" alt="TODO">
+  <h1>{{movie.title}}</h1>
+  <h3>{{movie.tagLine}}</h3>
+  <div id="genres">
+    <ng-container>Genres: </ng-container>
+    <ng-container *ngFor="let genre of movie.genres"> {{genre}} | </ng-container>
+  </div>
+  <div id="rate">
+    <p>{{movie.voteCount}} votes</p>
+    <p>rate: {{movie.voteAvg}}</p>
+  </div>
+  <p id="release">Release date: {{movie.releaseDate}}</p>
+  <p id="director">Directed by: {{movie.director}}</p>
+  <p id="runtime">Runtime: {{movie.runtime}}</p>
+
+</div>

@@ -1,1 +1,5 @@
-<app-movie *ngFor="let movie of service.movies" [movie]="movie"></app-movie>
+<div id="movieList">
+  <div *ngFor="let movie of service.getMovies(); let even=even" [ngClass]="{'even-movie': even}">
+    <app-movie  [movie]="movie" ></app-movie>
+  </div>
+</div>

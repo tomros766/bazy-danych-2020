@@ -1,0 +1,16 @@
+.movie{
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 5px;
+}
+.options{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+img{
+  width: 60px;
+  height: 80px;
+  background-color: azure;
+}

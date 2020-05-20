@@ -12,6 +12,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { ActorComponent } from './actor/actor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
     MovieComponent,
     MainPageComponent,
     MovieListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    ActorComponent
   ],
   imports: [
     BrowserModule,

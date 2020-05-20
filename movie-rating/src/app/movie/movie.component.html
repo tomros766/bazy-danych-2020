@@ -1,12 +1,19 @@
-<p>{{movie.homepage}}</p>
-<p>{{movie.budget}}</p>
-<p>{{movie.revenue}}</p>
-<p>{{movie.movieId}}</p>
-<p>{{movie.runtime}}</p>
-<p>{{movie.tagLine}}</p>
-<p>{{movie.title}}</p>
-<p>{{movie.voteCount}}</p>
-<p>{{movie.voteAvg}}</p>
-<p>{{movie.releaseDate}}</p>
-<p>{{movie.genres}}</p>
-<p>{{movie.people}}</p>
+<div class='movie'>
+  <img src="" alt="TODO">
+  <h4>{{movie.title | uppercase}}</h4>
+  <div class="options">
+    <button mat-button routerLink="/movie/{{movie.movieId}}" type="button" class="btn btn-secondary">Szczegóły</button>
+  </div>
+</div>
+<!--<p>{{movie.homepage}}</p>-->
+<!--<p>{{movie.budget}}</p>-->
+<!--<p>{{movie.revenue}}</p>-->
+<!--<p>{{movie.movieId}}</p>-->
+<!--<p>{{movie.runtime}}</p>-->
+<!--<p>{{movie.tagLine}}</p>-->
+<!--<p>{{movie.title}}</p>-->
+<!--<p>{{movie.voteCount}}</p>-->
+<!--<p>{{movie.voteAvg}}</p>-->
+<!--<p>{{movie.releaseDate}}</p>-->
+<!--<p>{{movie.genres}}</p>-->
+<!--<p>{{movie.people}}</p>-->
