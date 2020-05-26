@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AngularNeo4jModule} from 'angular-neo4j';
+import { AngularNeo4jModule } from 'angular-neo4j';
 import { MovieComponent } from './movie/movie.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { ActorComponent } from './actor/actor.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {IgxCarouselModule, IgxListModule} from "igniteui-angular";
+import { ActorListComponent } from './actor-list/actor-list.component';
+import { GenreComponent } from './genre/genre.component';
+import { GenreListComponent } from './genre-list/genre-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import { ActorComponent } from './actor/actor.component';
     MainPageComponent,
     MovieListComponent,
     MovieDetailsComponent,
-    ActorComponent
+    ActorComponent,
+    ToolbarComponent,
+    ActorListComponent,
+    GenreComponent,
+    GenreListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +39,13 @@ import { ActorComponent } from './actor/actor.component';
     NoopAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule,
+    IgxCarouselModule,
+    IgxListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

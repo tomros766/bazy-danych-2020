@@ -1,15 +1,21 @@
-<mat-toolbar>
-  <button mat-button [matMenuTriggerFor]="filmy">Filmy</button>
-  <mat-menu #filmy="matMenu">
-    <a mat-menu-item routerLink="/ranking">Ranking TOP 100</a>
-    <a mat-menu-item routerLink="/all">Wszystkie filmy</a>
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="kategorie">Kategorie</button>
-  <mat-menu #kategorie="matMenu">
-    //TODO nfgor po wszystkich sciagnietych z serwisu kategoriach
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="aktorzy">Aktorzy</button>
-  <mat-menu #aktorzy="matMenu">
-    <a mat-menu-item routerLink="/actors">Wszyscy aktorzy</a>
-  </mat-menu>
-</mat-toolbar>
+<div class="carousel-wrapper">
+  <igx-carousel [navigation]="false" [pause]="false" animationType="fade" [interval]="2000">
+    <div class="slides-wrapper">
+      <igx-slide *ngFor="let movie of slides">
+        <div style="height: 100%" [ngStyle]="slideStyle(movie.image)">
+          <section class="title" [ngClass]="{'animated': movie.active}">
+            <div class="description">{{ movie.tagLine }}</div>
+            <div class="price">{{ movie.title}}</div>
+          </section>
+        </div>
+      </igx-slide>
+    </div>
+    <ng-template igxCarouselIndicator></ng-template>
+  </igx-carousel>
+</div>
+<div class="list-wrapper">
+  <igx-list displayDensity="compact">
+    <igx-list-item *ngFor="let movie of slides; let i=index" [ngClass]="{'disabled': i !== currentIndex }">
+    </igx-list-item>
+  </igx-list>
+</div>

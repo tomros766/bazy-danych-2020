@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {CastMember} from '../models/CastMember';
 
 @Component({
   selector: 'app-actor',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorComponent implements OnInit {
 
+  // tslint:disable-next-line:no-input-rename
+  @Input('actor') actor: CastMember;
   constructor() { }
 
   ngOnInit() {
   }
-
 }

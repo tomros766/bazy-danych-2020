@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularNeo4jService} from 'angular-neo4j';
 import {Movie} from '../models/Movie';
+import {CastMember} from '../models/CastMember';
+import {Genre} from '../models/Genre';
 
 const url = 'http://localhost:7474/';
 @Injectable({
@@ -8,6 +10,8 @@ const url = 'http://localhost:7474/';
 })
 export class DatabaseService {
   movies: Movie[];
+  actors: CastMember[];
+  genres: Genre[];
   constructor(private neo4j: AngularNeo4jService) {
     this.neo4j.connect('http://localhost:7474/', 'neo4j', 'test1234', true).then(driver => {
       if (driver) {
@@ -15,6 +19,38 @@ export class DatabaseService {
       }
     });
     this.movies = this.getMovies();
+    this.actors = this.getActors();
+    this.genres = this.getGenres();
+  }
+
+  getGenres() {
+    const genres = [];
+    const query = 'match (m:Movie)-[:HAS_GENRE]-(g:Genre) return g,' +
+      'collect(distinct m.title) as movies';
+    this.neo4j.run(query).then(res => {
+      for (const elem of res) {
+        genres.push({
+          name: elem[0].properties.genreName,
+          movies: elem[1]
+        });
+      }
+    });
+    return genres;
+  }
+
+  getActors() {
+    const actors = [];
+    const query = 'match (m:Movie)-[:CAST_MEMBER]-(p:Person) return p,' +
+      'collect(distinct m.title) as movies';
+    this.neo4j.run(query).then(res => {
+      for (const elem of res) {
+        actors.push({
+          name: elem[0].properties.Name,
+          movies: elem[1]
+        });
+      }
+    });
+    return actors;
   }
 
   getMovieId(title: string): number {
@@ -24,12 +60,12 @@ export class DatabaseService {
   }
 
   getMovies() {
-    let movies = [];
+    const movies = [];
     const query = 'match (g:Genre)--(m:Movie)--(p:Person) return m,' +
       'collect(distinct g.genreName) as genres,collect(distinct p.Name) as people';
     this.neo4j.run(query).then(res => {
-      for (let elem of res) {
-        let size = movies.push({
+      for (const elem of res) {
+        const size = movies.push({
           budget: elem[0].properties.budget,
           revenue: elem[0].properties.revenue,
           homepage: elem[0].properties.homepage,
