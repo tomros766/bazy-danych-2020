@@ -87,4 +87,28 @@ export class DatabaseService {
     });
     return movies;
     }
+
+  checkEmail(email) {
+    let result = [];
+    const query = 'match (u: User {email: $email}) return count(u)';
+    const params = {email};
+    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
+    return result;
+  }
+
+  checkUsername(username) {
+    let result = [];
+    const query = 'match (u: User {username: $username}) return count(u)';
+    const params = {username};
+    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
+    return result;
+  }
+
+  registerUser(username, password, email) {
+    let result = [];
+    const query = 'create (u: User {username: $username, password: $password, email: $email}) return count(u)';
+    const params = {username, password, email};
+    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
+    return result;
+  }
 }

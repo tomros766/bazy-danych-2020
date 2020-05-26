@@ -1,0 +1,19 @@
+.form-group{
+  text-align: center;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+.button{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  color: #004d4d;
+}
+.error{
+  color: red;
+}
+
+.success{
+  color: green;
+}

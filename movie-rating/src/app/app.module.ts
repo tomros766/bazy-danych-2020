@@ -18,6 +18,10 @@ import {IgxCarouselModule, IgxListModule} from "igniteui-angular";
 import { ActorListComponent } from './actor-list/actor-list.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
+import { RegisterComponent } from './register/register.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { GenreListComponent } from './genre-list/genre-list.component';
     ToolbarComponent,
     ActorListComponent,
     GenreComponent,
-    GenreListComponent
+    GenreListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,10 @@ import { GenreListComponent } from './genre-list/genre-list.component';
     MatButtonModule,
     BrowserAnimationsModule,
     IgxCarouselModule,
-    IgxListModule
+    IgxListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

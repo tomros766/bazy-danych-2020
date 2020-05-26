@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
 import {MovieListComponent} from './movie-list/movie-list.component';
 import {MovieDetailsComponent} from './movie-details/movie-details.component';
-import {ActorComponent} from './actor/actor.component';
 import {ActorListComponent} from './actor-list/actor-list.component';
 import {GenreListComponent} from './genre-list/genre-list.component';
+import {RegisterComponent} from './register/register.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'ranking', component: MovieListComponent},
   {path: 'all', component: MovieListComponent},
   {path: 'actors', component: ActorListComponent},
-  {path: 'genres', component: GenreListComponent}
+  {path: 'genres', component: GenreListComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 
