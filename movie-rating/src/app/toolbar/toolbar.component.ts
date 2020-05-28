@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from '../services/database.service';
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  ifLogged() {
+    return !this.service.isLogged;
+  }
+
+  getCurrentUsername() {
+    if (this.service.isLogged) {
+      return this.service.userName;
+    }
+  }
+
+  logOut() {
+    this.service.logOut();
+  }
 }

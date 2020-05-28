@@ -25,13 +25,14 @@ export class RegisterComponent {
   }
 
   tryRegister(value) {
-    let res = this.service.registerUser(value.username, value.password, value.email);
-    if (res) {
+    const res = this.service.registerUser(value.username, value.password, value.email);
+    if (res === 0) {
       this.errorMessage = '';
       this.successMessage = 'Twoje konto zostało pomyślnie zarejestrowane';
-    } else {
-      this.errorMessage = 'Nie udało się założyć konta';
+    } else if (res === 1) {
+      this.errorMessage = 'Nazwa użytkownika już istnieje';
       this.successMessage = '';
-    }
+    } else {this.errorMessage = 'Podany email już istnieje';
+            this.successMessage = ''; }
   }
 }
