@@ -45,6 +45,7 @@ export class DatabaseService {
     this.neo4j.run(query).then(res => {
       for (const elem of res) {
         actors.push({
+          personID: elem[0].properties.personId,
           name: elem[0].properties.Name,
           movies: elem[1]
         });

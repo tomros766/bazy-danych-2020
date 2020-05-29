@@ -1,48 +1,20 @@
 #wrapper{
   width: 80%;
   margin: 60px auto;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 20px;
 }
 img{
   width: 300px;
   height: 400px;
   background-color: darkslategrey;
   vertical-align: center;
-  grid-column: 1;
-  grid-row: 1 /span 6;
   justify-self: end;
 }
-h1{
+h1 {
   justify-items: start;
   justify-self: start;
-  grid-column: 2;
-  grid-row: 1;
+  align-self: center;
+  align-items: center;
   margin: 0px;
+  padding: 5px;
 }
-h3{
-  grid-column: 2;
-  grid-row: 2;
-  margin: 0;
-}
-#genres{
-  grid-column: 2;
-  grid-row: 3;
-}
-#rate{
-  grid-column: 3;
-  grid-row: 1 /span 2;
-}
-#release{
-  grid-column: 2;
-  grid-row: 4;
-}
-#director{
-  grid-column: 2;
-  grid-row: 5;
-}
-#runtime{
-  grid-column: 2;
-  grid-row: 6;
-}
+

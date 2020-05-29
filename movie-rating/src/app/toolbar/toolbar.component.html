@@ -13,5 +13,7 @@
     <a mat-menu-item routerLink="/actors">Wszyscy aktorzy</a>
   </mat-menu>
   <span class="filler"></span>
+  <button mat-button [disabled]="isMainPage()" routerLink="/main-page">Wróć</button>
+
   <a routerLink="/register">Rejestracja</a>
 </mat-toolbar>

@@ -6,6 +6,7 @@ import {MovieDetailsComponent} from './movie-details/movie-details.component';
 import {ActorListComponent} from './actor-list/actor-list.component';
 import {GenreListComponent} from './genre-list/genre-list.component';
 import {RegisterComponent} from './register/register.component';
+import {ActorComponent} from './actor/actor.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'ranking', component: MovieListComponent},
   {path: 'all', component: MovieListComponent},
   {path: 'actors', component: ActorListComponent},
+  {path: 'actor/:id', component: ActorComponent},
   {path: 'genres', component: GenreListComponent},
   {path: 'register', component: RegisterComponent}
 ];

@@ -21,16 +21,17 @@ export class MovieDetailsComponent implements OnInit {
   movies: Movie[];
 
   constructor(private route: ActivatedRoute, private movieService: MovieService, private neo4j: AngularNeo4jService) {
-    this.movie = new Movie(this.neo4j, this.movieService);
+    this.movie = new Movie(this.neo4j);
     this.getMovie();
+    console.log(this.route.snapshot.routeConfig.path);
 
   }
 
 
   getMovie() {
-    const query = 'match (g:Genre)--(m:Movie {movieId: ' + this.route.snapshot.params.id + '})--(p:Person) return m, ' +
-      'collect(distinct g.genreName) as genres,collect(distinct p.Name) as people';
-    console.log(query);
+    // tslint:disable-next-line:max-line-length
+    const query = 'match (g:Genre)-[gr]-(m:Movie {movieId: ' + this.route.snapshot.params.id + '})-[cast]-(p:Person) return m, g, p, gr, cast';
+    // console.log(query);
     this.createMovie(query).then(obj => {
       this.movie.genres = obj.genres;
       this.movie.voteAvg = obj.voteAvg;
@@ -39,20 +40,20 @@ export class MovieDetailsComponent implements OnInit {
       this.movie.title = obj.title;
       this.movie.movieId = obj.movieId;
       this.movie.budget = obj.budget;
-      this.movie.director = obj.director;
+      this.movie.directors = obj.directors;
       this.movie.homepage = obj.homepage;
       this.movie.people = obj.people;
       this.movie.releaseDate = obj.releaseDate;
       this.movie.revenue = obj.revenue;
       this.movie.runtime = obj.runtime;
     });
-    console.log(this.movie);
+    // console.log(this.movie);
   }
 
 
 
   createMovie(query: string) {
-    let movie = new Movie(this.neo4j, this.movieService);
+    const movie = new Movie(this.neo4j);
     return movie.executeQuery(query);
   }
 

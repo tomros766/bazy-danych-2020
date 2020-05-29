@@ -1,3 +1,7 @@
 <div *ngFor="let actor of service.getActors()">
-  <app-actor  [actor]="actor" ></app-actor>
+<!--  <app-actor  [actor]="actor" ></app-actor>-->
+  <button mat-button type="button" class="btn btn-secondary" routerLink="/actor/{{actor.personID}}">
+    {{actor.name}}
+  </button>
 </div>
+
