@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="mb-2">
   <button mat-button [matMenuTriggerFor]="filmy">Filmy</button>
   <mat-menu #filmy="matMenu">
     <a mat-menu-item routerLink="/ranking">Ranking TOP 100</a>
@@ -13,9 +13,12 @@
     <a mat-menu-item routerLink="/actors">Wszyscy aktorzy</a>
   </mat-menu>
   <span class="filler"></span>
+  <button mat-button routerLink="/main-page">Strona Główna</button>
+  <button mat-button routerLink="{{getPreviousURL()}}">Wróć</button>
+  <mat-divider  [vertical]="true" style="height:50px"></mat-divider>
   <div *ngIf="ifLogged(); then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
-    <a routerLink="/register">Rejestracja</a>
+    <a routerLink="/register" class="ml-3">Rejestracja</a>
     <a routerLink="/login">Logowanie</a>
   </ng-template>
   <ng-template #elseBlock>

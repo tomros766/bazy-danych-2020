@@ -14,15 +14,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { ActorComponent } from './actor/actor.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {IgxCarouselModule, IgxListModule} from "igniteui-angular";
+import {IgxCarouselModule, IgxListModule} from 'igniteui-angular';
 import { ActorListComponent } from './actor-list/actor-list.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { RegisterComponent } from './register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -39,21 +40,22 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularNeo4jModule,
-    NoopAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    IgxCarouselModule,
-    IgxListModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatButtonToggleModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AngularNeo4jModule,
+        NoopAnimationsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        IgxCarouselModule,
+        IgxListModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatButtonToggleModule,
+        MatDividerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

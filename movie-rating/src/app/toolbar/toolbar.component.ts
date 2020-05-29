@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DatabaseService} from '../services/database.service';
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
+import {RouterService} from '../services/router.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,7 +11,7 @@ import {AuthenticationService} from "../services/authentication.service";
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private service: AuthenticationService) { }
+  constructor(private service: AuthenticationService, private routerService: RouterService) { }
 
   ngOnInit() {
   }
@@ -26,5 +28,9 @@ export class ToolbarComponent implements OnInit {
 
   logOut() {
     this.service.logOut();
+  }
+
+  getPreviousURL() {
+    return this.routerService.getPreviousUrl();
   }
 }
