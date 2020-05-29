@@ -1,3 +1,10 @@
-<div *ngFor="let genre of service.getGenres()">
-  <app-genre  [genre]="genre" ></app-genre>
+<div class="container">
+  <h3>All Genres</h3>
+  <div *ngFor="let genre of service.getGenres()">
+    <!--  <app-genre  [genre]="genre" ></app-genre>-->
+    <button mat-button type="button" class="btn btn-secondary" routerLink="/genre/{{genre.genreID}}">
+      {{genre.name}}
+    </button>
+  </div>
 </div>
+

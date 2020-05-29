@@ -19,7 +19,6 @@ const url = 'http://localhost:7474/';
 export class MovieDetailsComponent implements OnInit {
   movie: Movie;
   movies: Movie[];
-
   constructor(private route: ActivatedRoute, private movieService: MovieService, private neo4j: AngularNeo4jService) {
     this.movie = new Movie(this.neo4j);
     this.getMovie();

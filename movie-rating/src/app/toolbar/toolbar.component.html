@@ -1,28 +1,28 @@
 <mat-toolbar class="mb-2">
-  <button mat-button [matMenuTriggerFor]="filmy">Filmy</button>
-  <mat-menu #filmy="matMenu">
-    <a mat-menu-item routerLink="/ranking">Ranking TOP 100</a>
-    <a mat-menu-item routerLink="/all">Wszystkie filmy</a>
+  <button mat-button [matMenuTriggerFor]="movies">Movies</button>
+  <mat-menu #movies="matMenu">
+    <a mat-menu-item routerLink="/ranking">TOP 100</a>
+    <a mat-menu-item routerLink="/all">All Movies</a>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="kategorie">Kategorie</button>
-  <mat-menu #kategorie="matMenu">
-    <a mat-menu-item routerLink="/genres">Wszystkie kategorie</a>
+  <button mat-button [matMenuTriggerFor]="genres">Genres</button>
+  <mat-menu #genres="matMenu">
+    <a mat-menu-item routerLink="/genres">All Genres</a>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="aktorzy">Aktorzy</button>
-  <mat-menu #aktorzy="matMenu">
-    <a mat-menu-item routerLink="/actors">Wszyscy aktorzy</a>
+  <button mat-button [matMenuTriggerFor]="actors">Cast Members</button>
+  <mat-menu #actors="matMenu">
+    <a mat-menu-item routerLink="/actors">All cast Members</a>
   </mat-menu>
   <span class="filler"></span>
-  <button mat-button routerLink="/main-page">Strona Główna</button>
-  <button mat-button routerLink="{{getPreviousURL()}}">Wróć</button>
+  <button mat-button routerLink="/main-page">Main Page</button>
+  <button mat-button routerLink="{{getPreviousURL()}}">Go back</button>
   <mat-divider  [vertical]="true" style="height:50px"></mat-divider>
   <div *ngIf="ifLogged(); then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
-    <a routerLink="/register" class="ml-3">Rejestracja</a>
-    <a routerLink="/login">Logowanie</a>
+    <a routerLink="/register" class="ml-3">Register</a>
+    <a routerLink="/login">Log in</a>
   </ng-template>
   <ng-template #elseBlock>
-    <p>Witaj, {{getCurrentUsername()}}! </p>
-    <a (click)="logOut()">Wyloguj</a>
+    <p>Hello, {{getCurrentUsername()}}! </p>
+    <a (click)="logOut()">Log out</a>
   </ng-template>
 </mat-toolbar>

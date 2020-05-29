@@ -8,6 +8,7 @@ import {GenreListComponent} from './genre-list/genre-list.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {ActorComponent} from './actor/actor.component';
+import {GenreComponent} from './genre/genre.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'actor/:id', component: ActorComponent},
   {path: 'genres', component: GenreListComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'genre/:id', component: GenreComponent}
 ];
 
 

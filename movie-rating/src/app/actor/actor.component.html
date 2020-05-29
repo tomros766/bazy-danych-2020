@@ -1,6 +1,10 @@
-<h2>{{this.actor.name}}</h2>
-<div *ngFor="let movie of actor.movies">
-<button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieID}}">
-  {{movie.title}}
-</button>
+<div class="container">
+  <h2>{{this.actor.name}}</h2>
+  <h5>Movies:</h5>
+  <div *ngFor="let movie of actor.movies">
+    <button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieID}}">
+      {{movie.title}}
+    </button>
+  </div>
 </div>
+

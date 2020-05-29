@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MatDividerModule} from '@angular/material/divider';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatButtonToggleModule,
-        MatDividerModule
+        MatDividerModule,
+        NgxPaginationModule
     ],
   providers: [],
   bootstrap: [AppComponent]

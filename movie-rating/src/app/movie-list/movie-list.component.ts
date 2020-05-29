@@ -7,7 +7,7 @@ import {MovieService} from '../services/movie.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-
+  p = 1;
   constructor(private service: MovieService) { }
 
   getMovies() {

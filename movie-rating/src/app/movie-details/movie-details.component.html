@@ -6,7 +6,7 @@
   <div class="row">
     <img src="" alt="TODO" class="col-md-3">
     <div class="row col-md-9">
-      <h1 class="col-md-12">{{movie.title}}</h1>
+      <h2 class="col-md-12">{{movie.title}}</h2>
       <h4 class="col-md-9">{{movie.tagLine}}</h4>
       <div class="rate col-md-3">
         <p>{{movie.voteCount}} votes</p>
@@ -14,31 +14,30 @@
       </div>
       <div class="genres col-12">
         <ng-container>Genres: </ng-container>
-        <ng-container *ngFor="let genre of movie.genres; last as last"> {{genre.name}} <ng-container *ngIf="!last">|</ng-container>
-        </ng-container>
+        <a *ngFor="let genre of movie.genres; last as last" mat-button type="button" class="btn btn-secondary" routerLink="/genre/{{genre.genreID}}">
+          {{genre.name}}
+<!--          <ng-container *ngIf="!last">|</ng-container>-->
+        </a>
       </div>
       <p class="release col-md-6">Release date: {{movie.releaseDate}}</p>
       <p class="runtime col-md-6">Runtime: {{movie.runtime}}</p>
       <p class="directors col-12"> Directed by:
         <a *ngFor="let director of movie.directors; last as last" mat-button type="button" class="btn btn-secondary" routerLink="/actor/{{director.personID}}">
           {{director.name}}
-          <ng-container *ngIf="!last">|</ng-container>
+<!--          <ng-container *ngIf="!last">|</ng-container>-->
         </a>
       </p>
     </div>
 
-
-
   </div>
-
-
-
-
+  <h4>Actors</h4>
   <div *ngFor="let actor of movie.people" class="col-md-12">
     <button mat-button type="button" class="btn btn-secondary" routerLink="/actor/{{actor.personID}}">
       {{actor.name}}
     </button>
   </div>
+
+
 
 
 </div>

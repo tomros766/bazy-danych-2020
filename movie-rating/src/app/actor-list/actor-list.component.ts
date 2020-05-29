@@ -7,7 +7,7 @@ import {MovieService} from '../services/movie.service';
   styleUrls: ['./actor-list.component.css']
 })
 export class ActorListComponent implements OnInit {
-
+  p = 1;
   constructor(private service: MovieService) { }
 
   ngOnInit() {

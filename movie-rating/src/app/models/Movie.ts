@@ -41,13 +41,13 @@ export class Movie {
         if (!this.genres.map(el => el.genreID).includes(genre.genreID)) {
           this.genres.push(genre);
         }
-        if (!this.people.map(el => el.personID).includes(member.personID)) {
-          // console.log(this.people);
-          this.people.push(member);
-        }
         if (elem[4].type === 'DIRECTOR') {
           if (!this.directors.map(el => el.personID).includes(member.personID)) {
             this.directors.push(member);
+          }
+        } else {
+          if (!this.people.map(el => el.personID).includes(member.personID)) {
+            this.people.push(member);
           }
         }
       }

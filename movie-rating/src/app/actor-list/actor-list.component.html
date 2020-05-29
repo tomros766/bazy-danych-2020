@@ -1,7 +1,12 @@
-<div *ngFor="let actor of service.getActors()">
-<!--  <app-actor  [actor]="actor" ></app-actor>-->
-  <button mat-button type="button" class="btn btn-secondary" routerLink="/actor/{{actor.personID}}">
-    {{actor.name}}
-  </button>
+<div class="container">
+  <h3 class="col-12">All cast members</h3>
+  <div class="ml-5 col-md-3" *ngFor="let actor of service.getActors() | paginate: {itemsPerPage: 20, currentPage: p}">
+    <!--  <app-actor  [actor]="actor" ></app-actor>-->
+    <button mat-button type="button" class="btn btn-secondary" routerLink="/actor/{{actor.personID}}">
+      {{actor.name}}
+    </button>
+  </div>
+  <pagination-controls  (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
 </div>
+
 
