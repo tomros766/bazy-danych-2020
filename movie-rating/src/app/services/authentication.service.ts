@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {DatabaseService} from './database.service';
+import {User} from '../models/User';
 import {EncryptionService} from './encryption.service';
 
 @Injectable({
@@ -7,28 +8,44 @@ import {EncryptionService} from './encryption.service';
 })
 export class AuthenticationService {
 
-  constructor(private db: DatabaseService, private encryption: EncryptionService) { }
-
-  registerUser(username, password, email) {
-    if (this.checkUsername(username) && this.checkEmail(email)) {
-    const passwordEnc = this.encryption.set(password);
-    let res = this.db.registerUser(username, passwordEnc, email);
-    for (const elem of res) {
-      return elem === 1;
-    }} else { return false; }
+  users: User[];
+  isLogged = false;
+  userName = '';
+  constructor(private db: DatabaseService, private enrrypt: EncryptionService) {
+    this.users = db.users;
   }
 
-  checkUsername(username) {
-    const res = this.db.checkUsername(username);
-    for (const elem of res) {
-      return elem == null;
+  registerUser(username, email, password) {
+    const passwdEnc = this.enrrypt.set(password);
+    for (const elem of this.users) {
+      if (elem.email === email) { return 2; }
+      if (elem.username === username) { return 1; }
     }
+    this.db.registerUser(username, email, passwdEnc);
+    this.users.push({
+      email,
+      username,
+      password: passwdEnc
+    });
+    return 0;
   }
 
-  private checkEmail(email) {
-    const res = this.db.checkEmail(email);
-    for (const elem of res) {
-      return elem == null;
+  logUser(email, password) {
+    const passwdEnc = this.enrrypt.set(password);
+    for (const elem of this.users) {
+      if (elem.email === email) {
+        if (elem.password === passwdEnc) {
+          this.userName = elem.username;
+          this.isLogged = true;
+          return true;
+        }
+      }
     }
+    return false;
+  }
+
+  logOut() {
+    this.isLogged = false;
+    this.userName = '';
   }
 }

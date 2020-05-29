@@ -13,7 +13,13 @@
     <a mat-menu-item routerLink="/actors">Wszyscy aktorzy</a>
   </mat-menu>
   <span class="filler"></span>
-  <button mat-button [disabled]="isMainPage()" routerLink="/main-page">Wróć</button>
-
-  <a routerLink="/register">Rejestracja</a>
+  <div *ngIf="ifLogged(); then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <a routerLink="/register">Rejestracja</a>
+    <a routerLink="/login">Logowanie</a>
+  </ng-template>
+  <ng-template #elseBlock>
+    <p>Witaj, {{getCurrentUsername()}}! </p>
+    <a (click)="logOut()">Wyloguj</a>
+  </ng-template>
 </mat-toolbar>

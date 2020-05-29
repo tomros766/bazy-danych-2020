@@ -3,6 +3,7 @@ import {AngularNeo4jService} from 'angular-neo4j';
 import {Movie} from '../models/Movie';
 import {CastMember} from '../models/CastMember';
 import {Genre} from '../models/Genre';
+import {User} from '../models/User';
 
 const url = 'http://localhost:7474/';
 @Injectable({
@@ -12,6 +13,9 @@ export class DatabaseService {
   movies: Movie[];
   actors: CastMember[];
   genres: Genre[];
+  users: User[];
+  loggedUser = false;
+  userName = '';
   constructor(private neo4j: AngularNeo4jService) {
     this.neo4j.connect('http://localhost:7474/', 'neo4j', 'test1234', true).then(driver => {
       if (driver) {
@@ -21,6 +25,7 @@ export class DatabaseService {
     this.movies = this.getMovies();
     this.actors = this.getActors();
     this.genres = this.getGenres();
+    this.users = this.getUsers();
   }
 
   getGenres() {
@@ -54,12 +59,6 @@ export class DatabaseService {
     return actors;
   }
 
-  getMovieId(title: string): number {
-    const query = 'match (m:Movie {title: title}) return m.movieId';
-    const params = {title};
-    return this.neo4j.run(query, params).toArray.get('movieId');
-  }
-
   getMovies() {
     const movies = [];
     const query = 'match (g:Genre)--(m:Movie)--(p:Person) return m,' +
@@ -89,27 +88,24 @@ export class DatabaseService {
     return movies;
     }
 
-  checkEmail(email) {
-    let result = [];
-    const query = 'match (u: User {email: $email}) return count(u)';
-    const params = {email};
-    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
-    return result;
-  }
-
-  checkUsername(username) {
-    let result = [];
-    const query = 'match (u: User {username: $username}) return count(u)';
-    const params = {username};
-    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
-    return result;
-  }
-
   registerUser(username, password, email) {
-    let result = [];
     const query = 'create (u: User {username: $username, password: $password, email: $email}) return count(u)';
     const params = {username, password, email};
-    this.neo4j.run(query, params).then(res => result.push(res[0][0]));
-    return result;
+    this.neo4j.run(query, params);
+  }
+
+  getUsers() {
+    const users = [];
+    const query = 'match (u: User) return u';
+    this.neo4j.run(query).then(res => {
+      for (const elem of res) {
+        users.push({
+          email: elem[0].properties.email,
+          password: elem[0].properties.password,
+          username: elem[0].properties.username
+        });
+      }
+    });
+    return users;
   }
 }
