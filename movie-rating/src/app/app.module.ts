@@ -25,6 +25,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { TitleSearchPipe } from './shared/title-search.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     GenreComponent,
     GenreListComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TitleSearchPipe,
   ],
     imports: [
         BrowserModule,
