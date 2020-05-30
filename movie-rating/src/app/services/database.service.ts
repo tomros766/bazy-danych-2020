@@ -14,9 +14,7 @@ export class DatabaseService {
   actors: CastMember[];
   genres: Genre[];
   users: User[];
-  loggedUser = false;
-  userName = '';
-  constructor(private neo4j: AngularNeo4jService) {
+  constructor(public neo4j: AngularNeo4jService) {
     this.neo4j.connect('http://localhost:7474/', 'neo4j', 'test1234', true).then(driver => {
       if (driver) {
         console.log('Succesfully connected to ' + url);
@@ -97,7 +95,7 @@ export class DatabaseService {
 
   getUsers() {
     const users = [];
-    const query = 'match (u: User) return u';
+    const query = 'match (u: User)--(m:Movie) return u';
     this.neo4j.run(query).then(res => {
       for (const elem of res) {
         users.push({
@@ -108,5 +106,18 @@ export class DatabaseService {
       }
     });
     return users;
+  }
+
+  addUserVote(username, title, vote) {
+    const query = 'match (m:Movie),(u:User) where m.title = $title and u.username = $username create' +
+      '(u)-[r: VOTED {vote: $vote}]->(m)';
+    const params = {username, title, vote};
+    this.neo4j.run(query, params);
+  }
+
+  addVote(title, voteCount, voteAvg) {
+    const query = 'match (m:Movie {title: $title}) set m.voteCount = $voteCount, m.vote_avg = $voteAvg';
+    const params = {title, voteCount, voteAvg};
+    this.neo4j.run(query, params);
   }
 }

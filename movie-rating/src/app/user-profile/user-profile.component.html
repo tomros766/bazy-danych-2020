@@ -1,0 +1,15 @@
+<div>
+<p>Nazwa użytkownika: {{currentUser.username}}</p>
+<p>Email: {{currentUser.email}}</p>
+</div>
+<div *ngFor="let movie of votedMovies">
+  <mat-card>
+    <mat-card-title>
+      <button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieId}}">{{movie.movieTitle}}</button>
+    </mat-card-title>
+   <mat-card-content>
+     <h3>Your vote:</h3>
+     <star-rating totalstars="10" value="{{movie.vote}}" readonly="true" uncheckedcolor="grey" checkedcolor="gold"></star-rating>
+   </mat-card-content>
+  </mat-card>
+</div>

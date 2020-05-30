@@ -8,6 +8,8 @@ import {GenreListComponent} from './genre-list/genre-list.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {ActorComponent} from './actor/actor.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import {MovieRankingComponent} from './movie-ranking/movie-ranking.component';
 import {GenreComponent} from './genre/genre.component';
 
 
@@ -15,13 +17,14 @@ const routes: Routes = [
   {path: '', redirectTo: 'main-page', pathMatch: 'full'},
   {path: 'main-page', component: MainPageComponent},
   {path: 'movie/:id', component: MovieDetailsComponent},
-  {path: 'ranking', component: MovieListComponent},
+  {path: 'ranking', component: MovieRankingComponent},
   {path: 'all', component: MovieListComponent},
   {path: 'actors', component: ActorListComponent},
   {path: 'actor/:id', component: ActorComponent},
   {path: 'genres', component: GenreListComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'profile', component: UserProfileComponent},
   {path: 'genre/:id', component: GenreComponent}
 ];
 

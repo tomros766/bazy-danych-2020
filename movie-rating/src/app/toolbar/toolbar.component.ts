@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from '../services/database.service';
 import {AuthenticationService} from '../services/authentication.service';
-import {Router} from '@angular/router';
 import {RouterService} from '../services/router.service';
 
 @Component({
@@ -31,6 +29,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   getPreviousURL() {
-    return this.routerService.getPreviousUrl();
-  }
+      return this.routerService.getPreviousUrl();
+    }
 }

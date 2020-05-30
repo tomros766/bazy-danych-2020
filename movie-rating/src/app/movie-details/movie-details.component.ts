@@ -3,10 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Movie} from '../models/Movie';
 import {AngularNeo4jService} from 'angular-neo4j';
 import {MovieService} from '../services/movie.service';
-import {isUndefined} from 'util';
-import {DatabaseService} from '../services/database.service';
-import {Observable} from 'rxjs';
-import {Genre} from '../models/Genre';
+import {AuthenticationService} from '../services/authentication.service';
+import {StarRatingComponent} from 'ng-starrating/public_api';
 
 const url = 'http://localhost:7474/';
 
@@ -19,11 +17,11 @@ const url = 'http://localhost:7474/';
 export class MovieDetailsComponent implements OnInit {
   movie: Movie;
   movies: Movie[];
-  constructor(private route: ActivatedRoute, private movieService: MovieService, private neo4j: AngularNeo4jService) {
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private neo4j: AngularNeo4jService,
+              private userService: AuthenticationService) {
     this.movie = new Movie(this.neo4j);
     this.getMovie();
     console.log(this.route.snapshot.routeConfig.path);
-
   }
 
 
@@ -57,5 +55,17 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onRate($event: { oldValue: number; newValue: number; starRating: StarRatingComponent }) {
+    const currentSum = this.movie.voteCount * this.movie.voteAvg + $event.newValue;
+    this.movie.voteCount = this.movie.voteCount + 1;
+    this.movie.voteAvg = currentSum / this.movie.voteCount;
+    this.userService.addUserVote(this.movie.title, $event.newValue);
+    this.movieService.addVote(this.movie.title, this.movie.voteCount, this.movie.voteAvg);
+  }
+
+  isLogged() {
+    return this.userService.isLogged;
   }
 }

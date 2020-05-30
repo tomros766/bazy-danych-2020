@@ -29,6 +29,10 @@
       </p>
     </div>
 
+    <div id="stars">
+      <star-rating value="{{movie.voteAvg}}" totalstars="10" checkedcolor="gold" uncheckedcolor="grey" size="24px"
+                   readonly="{{!isLogged()}}" (rate)="onRate($event)"></star-rating>
+    </div>
   </div>
   <h4>Actors</h4>
   <div *ngFor="let actor of movie.people" class="col-md-12">

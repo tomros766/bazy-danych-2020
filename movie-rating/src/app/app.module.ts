@@ -23,9 +23,13 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import { MovieRankingComponent } from './movie-ranking/movie-ranking.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TitleSearchPipe } from './shared/title-search.pipe';
+import {RatingModule} from 'ng-starrating/public_api';
 
 @NgModule({
   declarations: [
@@ -42,24 +46,28 @@ import { TitleSearchPipe } from './shared/title-search.pipe';
     RegisterComponent,
     LoginComponent,
     TitleSearchPipe,
+    MovieRankingComponent,
+    UserProfileComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        AngularNeo4jModule,
-        NoopAnimationsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        IgxCarouselModule,
-        IgxListModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatButtonToggleModule,
-        MatDividerModule,
-        NgxPaginationModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AngularNeo4jModule,
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    IgxCarouselModule,
+    IgxListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    NgxPaginationModule,
+    MatCardModule,
+    RatingModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
