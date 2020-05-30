@@ -19,7 +19,7 @@ import { ActorListComponent } from './actor-list/actor-list.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { RegisterComponent } from './register/register.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
@@ -29,7 +29,10 @@ import {MatCardModule} from '@angular/material/card';
 import { MovieRankingComponent } from './movie-ranking/movie-ranking.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TitleSearchPipe } from './shared/title-search.pipe';
-import {RatingModule} from 'ng-starrating/public_api';
+import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
+import { GenrePipe } from './shared/genre.pipe';
+import { RatingPipe } from './shared/rating.pipe';
+import {RatingModule} from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -46,28 +49,32 @@ import {RatingModule} from 'ng-starrating/public_api';
     RegisterComponent,
     LoginComponent,
     TitleSearchPipe,
+    FilterMoviesComponent,
+    GenrePipe,
+    RatingPipe,
     MovieRankingComponent,
     UserProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AngularNeo4jModule,
-    NoopAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    IgxCarouselModule,
-    IgxListModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatButtonToggleModule,
-    MatDividerModule,
-    NgxPaginationModule,
-    MatCardModule,
-    RatingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AngularNeo4jModule,
+        NoopAnimationsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        IgxCarouselModule,
+        IgxListModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatButtonToggleModule,
+        MatDividerModule,
+        NgxPaginationModule,
+        FormsModule,
+      MatCardModule,
+      RatingModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

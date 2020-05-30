@@ -1,7 +1,13 @@
-<div id="movieList">
-  <div *ngFor="let movie of service.getMovies() | paginate: {itemsPerPage: 10, currentPage: p}; let even=even" [ngClass]="{'even-movie': even}">
-    <app-movie  [movie]="movie" ></app-movie>
-  </div>
 
-  <pagination-controls class="ml-auto mr-auto" (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+
+<div class="container">
+  <ng-container *ngIf = "(getMovies() | titleSearch:titleToSearch | rating:rateToSearch | genre:genreToSearch) as filteredMovies">
+    <app-filter-movies [genres]="getGenres()" (rateToSearch)="searchByRating($event)" (textToSearch)=searchByTitle($event) (genreToSearch)=searchByGenre($event)></app-filter-movies>
+    <div *ngFor="let movie of filteredMovies | paginate: {itemsPerPage: 10, currentPage: p}; let even=even" [ngClass]="{'even-movie': even}">
+      <app-movie  [movie]="movie" ></app-movie>
+    </div>
+
+    <pagination-controls class="ml-auto mr-auto" (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+  </ng-container>
+
 </div>

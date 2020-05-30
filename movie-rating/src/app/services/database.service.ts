@@ -64,10 +64,11 @@ export class DatabaseService {
       'collect(distinct g.genreName) as genres,collect(distinct p.Name) as people';
     this.neo4j.run(query).then(res => {
       for (const elem of res) {
+        // console.log(elem);
         const size = movies.push({
           budget: elem[0].properties.budget,
-          revenue: elem[0].properties.revenue,
           homepage: elem[0].properties.homepage,
+          revenue: elem[0].properties.revenue,
           movieId: elem[0].properties.movieId,
           runtime: elem[0].properties.runtime,
           tagLine: elem[0].properties.tagline,
@@ -78,10 +79,9 @@ export class DatabaseService {
           genres: elem[1],
           people: elem[2]
         });
-        // const queryInner = 'match (p:Person)-[r:Director]-(m:Movie {title: "' + elem[0].properties.title + '"}) return p';
-        // this.neo4j.run(queryInner).then(resIn => {
-        //   movies[size - 1].director = resIn;
-        // });
+        // if (isUndefined(movies[-1].voteAvg)) {
+        //   movies[-1].voteAvg = 0;
+        // }
       }
     });
     return movies;

@@ -10,7 +10,7 @@
       <h4 class="col-md-9">{{movie.tagLine}}</h4>
       <div class="rate col-md-3">
         <p>{{movie.voteCount}} votes</p>
-        <p>rate: {{movie.voteAvg}}</p>
+        <p>rate: {{movie.voteAvg | number: '1.0-2'}}</p>
       </div>
       <div class="genres col-12">
         <ng-container>Genres: </ng-container>

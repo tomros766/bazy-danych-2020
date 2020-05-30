@@ -31,7 +31,7 @@
     "igniteui-angular": "^8.2.28",
     "jszip": "^3.3.0",
     "minireset.css": "~0.0.4",
-    "ng-starrating": "^1.0.11",
+    "ng-starrating": "^1.0.20",
     "ngx-pagination": "^5.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.4.0",

@@ -12,7 +12,7 @@
           <input matInput type="password" class="form-control" formControlName="password">
           <p class="error">{{errorMessage}}</p>
         </div>
-        <p class="button"><mat-button-toggle (click)="tryLogin(loginForm.value)">Log in</mat-button-toggle></p>
+        <p class="button"><mat-button-toggle (click)="tryLogin(loginForm.value)" routerLink="/main-page">Log in</mat-button-toggle></p>
       </form>
     </div>
   </div>

@@ -19,5 +19,4 @@ export class TitleSearchPipe implements PipeTransform {
     key = key.toLowerCase();
     return movies.filter(e => e.title.toLowerCase().includes(key));
   }
-
 }

@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div class="col-2 offset-6">
+    <label for="searchText">
+      <input  id="searchText"class="form-control"  [(ngModel)]="searchText" type="text"  (input)="textSearch()" placeholder="Movie title:">
+    </label>
+  </div>
+  <div class="col-2">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Min rate
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button" (click)="ratingSearch(0)" >0</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(1)" >1</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(2)" >2</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(3)" >3</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(4)" >4</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(5)" >5 </button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(6)" >6</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(7)" >7</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(8)" >8</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(9)" >9</button>
+        <button class="dropdown-item" type="button" (click)="ratingSearch(10)" >10</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Genre
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button" (click)="genreSearch('')">All</button>
+        <button class="dropdown-item" type="button" *ngFor="let genre of genres" (click)="genreSearch(genre.name)">{{genre.name}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
