@@ -33,7 +33,7 @@
     "minireset.css": "~0.0.4",
     "ng-starrating": "1.0.11",
     "ngx-pagination": "^5.0.0",
-    "resize-observer-polyfill": "~1.5.1",
+    "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "web-animations-js": "~2.3.2",

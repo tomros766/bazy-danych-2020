@@ -6,6 +6,7 @@ import {MovieService} from '../services/movie.service';
 import {AuthenticationService} from '../services/authentication.service';
 import {RatingModule} from 'ng-starrating';
 
+
 const url = 'http://localhost:7474/';
 
 @Component({

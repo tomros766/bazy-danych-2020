@@ -33,6 +33,7 @@ import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
 import { GenrePipe } from './shared/genre.pipe';
 import { RatingPipe } from './shared/rating.pipe';
 import {RatingModule} from 'ng-starrating';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -55,26 +56,27 @@ import {RatingModule} from 'ng-starrating';
     MovieRankingComponent,
     UserProfileComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        AngularNeo4jModule,
-        NoopAnimationsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatButtonModule,
-        BrowserAnimationsModule,
-        IgxCarouselModule,
-        IgxListModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatButtonToggleModule,
-        MatDividerModule,
-        NgxPaginationModule,
-        FormsModule,
-      MatCardModule,
-      RatingModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AngularNeo4jModule,
+    NoopAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    IgxCarouselModule,
+    IgxListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    NgxPaginationModule,
+    FormsModule,
+    MatCardModule,
+    RatingModule,
+    MatInputModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
