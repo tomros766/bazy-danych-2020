@@ -1,8 +1,41 @@
 <div class="container">
   <h2>{{this.actor.name}}</h2>
+  <div class="row">
+    <div class="col-2">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Genre
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" (click)="genreSearch('')">All</button>
+          <button class="dropdown-item" type="button" *ngFor="let genre of genres" (click)="genreSearch(genre.name)">{{genre.name}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Min rate
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" (click)="rateSearch(0)" >0</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(1)" >1</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(2)" >2</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(3)" >3</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(4)" >4</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(5)" >5 </button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(6)" >6</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(7)" >7</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(8)" >8</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(9)" >9</button>
+          <button class="dropdown-item" type="button" (click)="rateSearch(10)" >10</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <h5>Movies:</h5>
-  <div *ngFor="let movie of actor.movies">
-    <button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieID}}">
+  <div *ngFor="let movie of movies | genre:genreFilter | rating:rateFilter">
+    <button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieId}}">
       {{movie.title}}
     </button>
   </div>

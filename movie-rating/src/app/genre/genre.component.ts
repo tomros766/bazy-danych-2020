@@ -29,14 +29,14 @@ export class GenreComponent implements OnInit {
   executeQuery(query: string) {
     return this.neo4j.run(query).then(res => {
       for (const elem of res) {
-        console.log(elem);
+        // console.log(elem);
         this.genre.genreID = elem[0].properties.genreId;
         this.genre.name = elem[0].properties.genreName;
         const movieID: number = elem[1].properties.movieId;
         const title: string = elem[1].properties.title;
         if (!this.genre.movies.map(el => el.movieID).includes(movieID)) {
           this.genre.movies.push({title, movieID});
-          console.log(this.genre.movies);
+          // console.log(this.genre.movies);
         }
       }
       return this;

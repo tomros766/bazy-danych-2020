@@ -79,9 +79,6 @@ export class DatabaseService {
           genres: elem[1],
           people: elem[2]
         });
-        // if (isUndefined(movies[-1].voteAvg)) {
-        //   movies[-1].voteAvg = 0;
-        // }
       }
     });
     return movies;

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MovieService} from '../services/movie.service';
 import {Movie} from '../models/Movie';
-import {StarRatingComponent} from 'ng-starrating/public_api';
 
 @Component({
   selector: 'app-movie-ranking',

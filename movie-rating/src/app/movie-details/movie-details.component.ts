@@ -4,7 +4,7 @@ import {Movie} from '../models/Movie';
 import {AngularNeo4jService} from 'angular-neo4j';
 import {MovieService} from '../services/movie.service';
 import {AuthenticationService} from '../services/authentication.service';
-import {StarRatingComponent} from 'ng-starrating/public_api';
+import {RatingModule} from 'ng-starrating';
 
 const url = 'http://localhost:7474/';
 
@@ -57,7 +57,7 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRate($event: { oldValue: number; newValue: number; starRating: StarRatingComponent }) {
+  onRate($event: { oldValue: number; newValue: number; starRating: RatingModule }) {
     const currentSum = this.movie.voteCount * this.movie.voteAvg + $event.newValue;
     this.movie.voteCount = this.movie.voteCount + 1;
     this.movie.voteAvg = currentSum / this.movie.voteCount;
