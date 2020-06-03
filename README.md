@@ -16,9 +16,8 @@
   * [Neo4j](https://neo4j.com/download/)
 ## Przygotowanie:
   ### Uzyskanie bazy danych z pliku csv (Pomiń ten krok, jeśli już posiadasz gotową bazę danych).
-   1. Stwórz bazę danych w Neo4jDesktop i umieść w jej folderze "import" plik 'movies_py.csv'.
-   2. Uruchom swoją bazę w Neo4jBrowser i uruchom po kolei skrypty: 'movies_database.cypher', 'load-csv-with-headers-from-file-movies-py-csv-as-row.cypher', 'poster_load.cypher'.
-   3. W przypadku problemów z uruchamianiem pierwszego skryptu może być konieczne wykonywanie go w mniejszych częściach.
+   1. Stwórz bazę danych w Neo4jDesktop i uruchom skrypt "complete_database.cypher"
+   3. W przypadku problemów z uruchamianiem skryptu może być konieczne wykonywanie go w mniejszych częściach.
     
   ### Przygotowanie projektu Angular.
   
