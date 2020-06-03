@@ -10,31 +10,31 @@
 ---
 ## Opis aplikacji
   Aplikacja pozwala na przeglądanie filmów zgromadzonych w bazie. Listę filmów można filtrować po nazwie, minimalnej ocenie i gatunku. Można również wyświetlić wszystkie gatunki i aktorów. Z tych list można przełączyć się na strony z wylistowanymi filmami dla danego aktora/gatunku. Między podstronami ze szczegółami filmu, aktorami i gatunkami można się swobodnie przełączać. Ponadto, dla zarejestrowanych i zalogowanych użytkowników istnieje możliwość oceniania filmu z poziomu podstrony ze szczegółami danego filmu.
-### Wymagania wstępne:
+## Wymagania wstępne:
   * [Node.js](https://nodejs.org/en/)
   * [Angular CLI](https://angular.io/cli)
   * [Neo4j](https://neo4j.com/download/)
-### Przygotowanie:
-  #### Uzyskanie bazy danych z pliku csv (Pomiń ten krok, jeśli już posiadasz gotową bazę danych).
+## Przygotowanie:
+  ### Uzyskanie bazy danych z pliku csv (Pomiń ten krok, jeśli już posiadasz gotową bazę danych).
    1. Stwórz bazę danych w Neo4jDesktop i umieść w jej folderze "import" plik 'movies_py.csv'.
    2. Uruchom swoją bazę w Neo4jBrowser i uruchom po kolei skrypty: 'movies_database.cypher', 'load-csv-with-headers-from-file-movies-py-csv-as-row.cypher', 'poster_load.cypher'.
    3. W przypadku problemów z uruchamianiem pierwszego skryptu może być konieczne wykonywanie go w mniejszych częściach.
     
-  #### Przygotowanie projektu Angular.
+  ### Przygotowanie projektu Angular.
   
    4. uruchom konsolę w folderze movies-rating i wykonaj polecenie 'npm-install'. Poczekaj na instalację wszystkich niezbędnych zależności (zawartych w pliku package.json).
    5. W pliku movies-rating/services/database.service.ts w funkcji 'constructor' zamień odpowiednio adres, nazwę i hasło utworzonej (lub gotowej) bazy danych.
     
-  #### Uruchomienie projektu.
+  ### Uruchomienie projektu.
   
    6. w folderze movies-rating wykonaj polecenie 'ng serve'. Projekt domyślnie będzie dostępny na porcie localhost:4200/
    
-  ### Schemat bazy danych
+  ## Schemat bazy danych
   ![Graf reprezentujący bazę](https://github.com/tomros766/bazy-danych-2020/blob/master/img/graph1.png "Graf reprezentujący bazę")
   
    Baza danych obsługiwana przez aplikację składa się z czterech klas obiektów: Movie, Genre, Person, User. 
    Poniżej znajduje się zestawienie atrybutów, które muszą być obecne w bazie, aby aplikacja działała poprawnie.
-   #### Movie
+   ### Movie
    ![Atrybuty filmów](https://github.com/tomros766/bazy-danych-2020/blob/master/img/movie.png "Atrybuty filmów")
    * budget (number)
    * movieId (number)
@@ -46,43 +46,43 @@
    * title (string)
    * voteCount (number)
    * vote_avg (number)
-   #### Genre
+   ### Genre
    ![Atrybuty gatunków](https://github.com/tomros766/bazy-danych-2020/blob/master/img/genre.png "Atrybuty gatunków")
    * genreId (number)
    * genreName (string)
-   #### Person
+   ### Person
    ![Atrybuty aktorów](https://github.com/tomros766/bazy-danych-2020/blob/master/img/person.png "Atrybuty aktorów")
    * personId (number)
    * Name (string)
-   #### User
+   ### User
    ![Atrybuty użytkowników](https://github.com/tomros766/bazy-danych-2020/blob/master/img/user1.png "Atrybuty użytkowników")
    * email (string)
    * password (string)
    * username (string)
-  ### Komponenty
-  #### Actor
+  ## Komponenty
+  ### Actor
   Komponent dla konkretnego aktora, którego ID jest przekazane przez usługę Routingu, pokazuje filmy, w których brał udział. Filmy można filtrować po minimalnej ocenie i gatunku. Po kliknięciu na film użytkownik zostaje przeniesiony na stronę filmu. Wszystkie potrzebne dane (oprócz przekazanego ID aktora) komponent pobiera bezpośrednio z bazy.
-  #### ActorList
+  ### ActorList
   Komponent wyświetla listę wszystkich aktorów. Po kliknięciu na aktora użytkownik zostaje przeniesiony na stronę aktora. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
-  #### FilterMovies
+  ### FilterMovies
   Komponent zawiera zbiór filtrów dla Listy Filmów. Powstał w celu zmniejszenia objętości komponentu MovieList.
-  #### Genre
+  ### Genre
   Komponent dla konkretnego gatunku, którego ID jest przekazane przez usługę Routingu, pokazuje filmy należące do danej kategorii. Po kliknięciu na film użytkownik zostaje przeniesiony na stronę filmu. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
-  #### GenreList
+  ### GenreList
   Komponent wyświetla listę wszystkich kategorii. Po kliknięciu na gatunek użyutkownik zostaje przeniesiony na stronę gatunku. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
-  #### login
+  ### login
   Komponent obsługuje mechanizm logowania. Korzysta z usługi AuthenticationService.
-  #### MainPage
+  ### MainPage
   Komponent wyświetla karuzelę z kilkoma filmami. Przy pobieraniu filmów wykorzystuje usługę MovieService.
-  #### Movie
+  ### Movie
   Komponent wyświetla podstawowe informacje o filmie. Działa w połączeniu z komponentem MovieList, który przekazuje do komponentu odpowiednie atrybuty filmu. Po kliknięciu na przycisk 'szczegóły' użytkownik zostaje przekierowany na stronę ze szczegółowymi informacjami o danym filmie.
-  #### MovieDetails
+  ### MovieDetails
   Komponent wyświetla szczegółowe informacje o filmie, którego ID jest przekazane przez usługę Routingu. Po naciśnięciu na gatunek, reżysera lub aktora użytkownik jest przenoszony na odpowiednią stronę. Wszystkie potrzebne dane (oprócz przekazanego ID filmu) komponent pobiera bezpośrednio z bazy.
-  #### MovieList
+  ### MovieList
   Komponent wyświetla listę wszystkich filmów. Obsługuje mechanizm filtrowania, Korzysta z usługi MovieService.
-  #### MovieRanking
+  ### MovieRanking
   Komponent działa analogicznie do komponentu MovieList, jednak pokazuje 100 najlepszych filmów pod względem średniej ocen oraz widoczną ocenę na każdym panelu.
-  #### Register
+  ### Register
   Komponent obsługuje machanizm rejestracji. Korzysta z usługi AuthenticationService
-  #### Toolbar
+  ### Toolbar
   Komponent wyświetla pasek Menu. Stanowi nawigację po całej aplikacji.
