@@ -6,6 +6,7 @@ import {Genre} from '../models/Genre';
 import {MovieService} from '../services/movie.service';
 import {Movie} from '../models/Movie';
 import {isUndefined} from 'util';
+import {DatabaseService} from '../services/database.service';
 
 @Component({
   selector: 'app-actor',
@@ -21,11 +22,6 @@ export class ActorComponent implements OnInit {
   movies: Array<{movieId: number, title: string, genres: Array<string>, voteAvg: number}> = new Array<{movieId: number, title: string, genres: Array<string>, voteAvg: number}>();
   // tslint:disable-next-line:no-input-rename
   constructor(private route: ActivatedRoute, private neo4j: AngularNeo4jService, private movieService: MovieService) {
-    this.neo4j.connect('http://localhost:7474/', 'neo4j', 'test1234', true).then(driver => {
-      if (driver) {
-        console.log('Succesfully connected');
-      }
-    });
     this.executeQuery('match (p: Person {personId: ' + this.route.snapshot.params.id + '})--(m:Movie)-[HASGENRE]-(g:Genre) return p, m, ' +
       'collect(distinct g.genreName) as genres');
     this.genres = this.movieService.getGenres();

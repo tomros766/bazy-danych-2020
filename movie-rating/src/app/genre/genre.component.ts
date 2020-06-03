@@ -15,11 +15,6 @@ export class GenreComponent implements OnInit {
   p = 1;
   // tslint:disable-next-line:no-input-rename
   constructor(private route: ActivatedRoute, private neo4j: AngularNeo4jService) {
-    this.neo4j.connect('http://localhost:7474/', 'neo4j', 'test1234', true).then(driver => {
-      if (driver) {
-        console.log('Succesfully connected');
-      }
-    });
     this.executeQuery('match (g: Genre {genreId: ' + this.route.snapshot.params.id + '})--(m:Movie) return g, m');
   }
 

@@ -3,7 +3,7 @@
     <div class="slides-wrapper">
       <igx-slide *ngFor="let movie of slides">
         <div style="height: 100%" [ngStyle]="slideStyle(movie.image)">
-          <section class="title" [ngClass]="{'animated': movie.active}">
+          <section class="title" [ngClass]="{'animated': movie.poster}">
             <div class="description">{{ movie.tagLine }}</div>
             <div class="price">{{ movie.title}}</div>
           </section>
