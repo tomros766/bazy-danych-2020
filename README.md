@@ -27,12 +27,12 @@
   
    6. w folderze movies-rating wykonaj polecenie 'ng serve'. Projekt domyślnie będzie dostępny na porcie localhost:4200/
    
-  #### Schemat bazy danych
+  ### Schemat bazy danych
   ![Graf reprezentujący bazę](https://github.com/tomros766/bazy-danych-2020/blob/master/img/graph1.png "Graf reprezentujący bazę")
   
    Baza danych obsługiwana przez aplikację składa się z czterech klas obiektów: Movie, Genre, Person, User. 
    Poniżej znajduje się zestawienie atrybutów, które muszą być obecne w bazie, aby aplikacja działała poprawnie.
-   ##### Movie
+   #### Movie
    ![Atrybuty filmów](https://github.com/tomros766/bazy-danych-2020/blob/master/img/movie.png "Atrybuty filmów")
    * budget (number)
    * movieId (number)
@@ -44,15 +44,15 @@
    * title (string)
    * voteCount (number)
    * vote_avg (number)
-   ##### Genre
+   #### Genre
    ![Atrybuty gatunków](https://github.com/tomros766/bazy-danych-2020/blob/master/img/genre.png "Atrybuty gatunków")
    * genreId (number)
    * genreName (string)
-   ##### Person
+   #### Person
    ![Atrybuty aktorów](https://github.com/tomros766/bazy-danych-2020/blob/master/img/person.png "Atrybuty aktorów")
    * personId (number)
    * Name (string)
-   ##### User
+   #### User
    ![Atrybuty użytkowników](https://github.com/tomros766/bazy-danych-2020/blob/master/img/user1.png "Atrybuty użytkowników")
    * email (string)
    * password (string)
