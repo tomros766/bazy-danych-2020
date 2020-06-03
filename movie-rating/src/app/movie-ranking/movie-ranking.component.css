@@ -5,3 +5,22 @@
 .even-movie{
   background-color: darksalmon;
 }
+
+.rate{
+  text-align: center;
+  padding: 1vh;
+  font-size: 5vh;
+  color: darkgoldenrod;
+}
+
+.wrapper{
+  display: flex;
+}
+
+.movieDiv{
+  width: 50vw;
+}
+
+.rateDiv{
+  flex: 1;
+}

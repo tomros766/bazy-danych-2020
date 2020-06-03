@@ -1,7 +1,11 @@
 <div id="movieList">
-  <div *ngFor="let movie of rankedMovies; let even=even" [ngClass]="{'even-movie': even}">
+  <div *ngFor="let movie of rankedMovies; let even=even" [ngClass]="{'even-movie': even}" class="wrapper">
+    <div class="movieDiv">
     <app-movie  [movie]="movie" ></app-movie>
-    <star-rating totalstars="10" value="{{movie.voteAvg}}" uncheckedcolor="grey" checkedcolor="gold" readonly="true"></star-rating>
+    </div>
+    <div class="rateDiv">
+    <p class="rate">{{movie.voteAvg | number: '1.2-2'}}</p>
+    </div>
   </div>
 </div>
 

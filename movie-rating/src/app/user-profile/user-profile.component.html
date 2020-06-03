@@ -3,18 +3,17 @@
 <p class="data">Email: {{currentUser.email}}</p>
  <p class="title">Evaluated movies:</p>
 </div>
-<div class="container">
-<div class='row'>
-<div *ngFor="let movie of votedMovies">
-  <mat-card class="col-md-3">
-    <mat-card-title>
+<mat-grid-list cols="4">
+
+<mat-grid-tile *ngFor="let movie of votedMovies; let even=even">
+  <mat-card class="col-md-12"  [ngClass]="{'even-movie': even}">
+    <mat-card-title style="text-align: center">
       <button mat-button type="button" class="btn btn-secondary" routerLink="/movie/{{movie.movieId}}">{{movie.movieTitle}}</button>
     </mat-card-title>
    <mat-card-content>
-     <h3>Your vote:</h3>
-     <star-rating totalstars="10" value="{{movie.vote}}" readonly="true" uncheckedcolor="grey" checkedcolor="gold"></star-rating>
+     <h5 style="text-align: center">Your vote:</h5>
+     <p id="vote">{{movie.vote}}</p>
    </mat-card-content>
   </mat-card>
-</div>
-</div>
-</div>
+</mat-grid-tile>
+</mat-grid-list>

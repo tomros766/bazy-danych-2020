@@ -1,21 +1,10 @@
-<div class="carousel-wrapper">
-  <igx-carousel [navigation]="false" [pause]="false" animationType="fade" [interval]="2000">
-    <div class="slides-wrapper">
-      <igx-slide *ngFor="let movie of slides">
-        <div style="height: 100%" [ngStyle]="slideStyle(movie.image)">
-          <section class="title" [ngClass]="{'animated': movie.active}">
-            <div class="description">{{ movie.tagLine }}</div>
-            <div class="price">{{ movie.title}}</div>
-          </section>
-        </div>
-      </igx-slide>
-    </div>
-    <ng-template igxCarouselIndicator></ng-template>
-  </igx-carousel>
+<div id="background">
+<div class="title">
+<h3>Welcome to MovieRates, when you can find only the best movies!</h3>
+<h5>If you are new user, create an account, so you can vote for your favourite positions</h5>
+  <div class="buttons">
+    <button class="button" mat-button routerLink="/register" color="warn">Register</button>
+    <button class="button" mat-button routerLink="/login"color="primary">Log in</button>
+  </div>
 </div>
-<div class="list-wrapper">
-  <igx-list displayDensity="compact">
-    <igx-list-item *ngFor="let movie of slides; let i=index" [ngClass]="{'disabled': i !== currentIndex }">
-    </igx-list-item>
-  </igx-list>
 </div>

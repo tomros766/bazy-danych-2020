@@ -1,10 +1,27 @@
 .data{
   text-align: center;
-  font-size: 20px;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.even-movie{
+  background-color: #004d4d;
 }
 
 .title{
   text-align: center;
-  font-size: 30px;
+  font-size: 6vh;
+  font-weight: bold;
+  color: darkmagenta;
+}
+
+button{
+  font-size: 3vh;
+}
+
+#vote{
+  color: darkgoldenrod;
+  text-align: center;
+  font-size: 3vh;
   font-weight: bold;
 }

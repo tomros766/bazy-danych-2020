@@ -34,6 +34,7 @@ import { GenrePipe } from './shared/genre.pipe';
 import { RatingPipe } from './shared/rating.pipe';
 import {RatingModule} from 'ng-starrating';
 import {MatInputModule} from "@angular/material/input";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import {MatInputModule} from "@angular/material/input";
     FormsModule,
     MatCardModule,
     RatingModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
