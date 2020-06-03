@@ -8,6 +8,8 @@
   Część webowa zostanie zrealizowana za pomocą Angulara.
   
 ---
+## Opis aplikacji
+  Aplikacja pozwala na przeglądanie filmów zgromadzonych w bazie. Listę filmów można filtrować po nazwie, minimalnej ocenie i gatunku. Można również wyświetlić wszystkie gatunki i aktorów. Z tych list można przełączyć się na strony z wylistowanymi filmami dla danego aktora/gatunku. Między podstronami ze szczegółami filmu, aktorami i gatunkami można się swobodnie przełączać. Ponadto, dla zarejestrowanych i zalogowanych użytkowników istnieje możliwość oceniania filmu z poziomu podstrony ze szczegółami danego filmu.
 ### Wymagania wstępne:
   * [Node.js](https://nodejs.org/en/)
   * [Angular CLI](https://angular.io/cli)
