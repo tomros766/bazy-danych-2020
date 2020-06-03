@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,9 +8,12 @@ import {RouterModule} from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(router: RouterModule) { }
+  constructor(private authentication: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  ifLogged() {
+    return this.authentication.isLogged;
+  }
 }
