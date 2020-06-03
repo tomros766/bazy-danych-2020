@@ -76,6 +76,7 @@ export class DatabaseService {
           voteCount: elem[0].properties.voteCount,
           voteAvg: elem[0].properties.vote_avg,
           releaseDate: elem[0].properties.releaseDate,
+          poster: elem[0].properties.poster,
           genres: elem[1],
           people: elem[2]
         });

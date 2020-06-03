@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {DatabaseService} from './database.service';
 import {User} from '../models/User';
 import {EncryptionService} from './encryption.service';
-import {Movie} from "../models/Movie";
 
 @Injectable({
   providedIn: 'root'

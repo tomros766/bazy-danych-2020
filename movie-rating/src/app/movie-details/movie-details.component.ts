@@ -43,6 +43,7 @@ export class MovieDetailsComponent implements OnInit {
       this.movie.releaseDate = obj.releaseDate;
       this.movie.revenue = obj.revenue;
       this.movie.runtime = obj.runtime;
+      this.movie.poster = obj.poster;
     });
     // console.log(this.movie);
   }

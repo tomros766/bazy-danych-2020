@@ -5,7 +5,7 @@
 img{
   width: 300px;
   height: 400px;
-  background-color: darkslategrey;
+  /*background-color: darkslategrey;*/
   vertical-align: center;
   justify-self: end;
 }

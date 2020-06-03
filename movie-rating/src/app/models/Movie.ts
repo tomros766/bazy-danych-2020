@@ -15,6 +15,7 @@ export class Movie {
   voteCount: number;
   voteAvg?: number;
   releaseDate: Date;
+  poster: string;
   directors?: Array<{name: string, personID: number}> = new Array<{name: string, personID: number}>();
   genres?: Array<{name: string, genreID: number}> = new Array<{name: string, genreID: number}>();
   people?: Array<{name: string, personID: number}> = new Array<{name: string, personID: number}>();
@@ -36,6 +37,7 @@ export class Movie {
         this.voteCount = elem[0].properties.voteCount;
         this.voteAvg = elem[0].properties.vote_avg;
         this.releaseDate = elem[0].properties.releaseDate;
+        this.poster = elem[0].properties.poster;
         const genre = {name: elem[1].properties.genreName, genreID: elem[1].properties.genreId};
         const member = {name: elem[2].properties.Name, personID: elem[2].properties.personId};
         if (!this.genres.map(el => el.genreID).includes(genre.genreID)) {
