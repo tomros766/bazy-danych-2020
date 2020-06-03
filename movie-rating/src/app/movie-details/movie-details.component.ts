@@ -60,11 +60,15 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   onRate($event: { oldValue: number; newValue: number; starRating: RatingModule }) {
-    const currentSum = this.movie.voteCount * this.movie.voteAvg + $event.newValue;
-    this.movie.voteCount = this.movie.voteCount + 1;
-    this.movie.voteAvg = currentSum / this.movie.voteCount;
-    this.userService.addUserVote(this.movie.title, $event.newValue);
-    this.movieService.addVote(this.movie.title, this.movie.voteCount, this.movie.voteAvg);
+    if (!this.userService.hasVoted(this.movie.title)) {
+      const currentSum = this.movie.voteCount * this.movie.voteAvg + $event.newValue;
+      this.movie.voteCount = this.movie.voteCount + 1;
+      this.movie.voteAvg = currentSum / this.movie.voteCount;
+      this.userService.addUserVote(this.movie.title, $event.newValue);
+      this.movieService.addVote(this.movie.title, this.movie.voteCount, this.movie.voteAvg);
+    } else {
+      alert('You already voted!');
+    }
   }
 
   isLogged() {

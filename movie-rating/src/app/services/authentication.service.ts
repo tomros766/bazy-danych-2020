@@ -68,7 +68,7 @@ export class AuthenticationService {
     const params = {username: this.userName};
     this.db.neo4j.run(query, params).then(res => {
       for (const elem of res) {
-        console.log(elem);
+        // console.log(elem);
         const movieTitle = elem[0].properties.title;
         const movieId = elem[0].properties.movieId;
         const vote = elem[1].properties.vote;
@@ -86,8 +86,14 @@ export class AuthenticationService {
     return [];
   }
 
+  hasVoted(title) {
+    return this.getVotedMovies().map(m => m.movieTitle).includes(title);
+  }
+
   addUserVote(title, vote) {
     if (this.isLogged) {
-    this.db.addUserVote(this.userName, title, vote); }
+      // console.log(this.getVotedMovies());
+      this.db.addUserVote(this.userName, title, vote).then(r => this.getUserMovies());
+    }
   }
 }

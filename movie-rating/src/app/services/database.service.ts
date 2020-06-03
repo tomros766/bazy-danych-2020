@@ -106,11 +106,11 @@ export class DatabaseService {
     return users;
   }
 
-  addUserVote(username, title, vote) {
+  async addUserVote(username, title, vote) {
     const query = 'match (m:Movie),(u:User) where m.title = $title and u.username = $username create' +
       '(u)-[r: VOTED {vote: $vote}]->(m)';
     const params = {username, title, vote};
-    this.neo4j.run(query, params);
+    await this.neo4j.run(query, params);
   }
 
   addVote(title, voteCount, voteAvg) {
