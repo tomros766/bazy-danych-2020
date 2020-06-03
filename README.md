@@ -57,3 +57,30 @@
    * email (string)
    * password (string)
    * username (string)
+  ### Komponenty
+  #### Actor
+  Komponent dla konkretnego aktora, którego ID jest przekazane przez usługę Routingu, pokazuje filmy, w których brał udział. Filmy można filtrować po minimalnej ocenie i gatunku. Po kliknięciu na film użytkownik zostaje przeniesiony na stronę filmu. Wszystkie potrzebne dane (oprócz przekazanego ID aktora) komponent pobiera bezpośrednio z bazy.
+  #### ActorList
+  Komponent wyświetla listę wszystkich aktorów. Po kliknięciu na aktora użytkownik zostaje przeniesiony na stronę aktora. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
+  #### FilterMovies
+  Komponent zawiera zbiór filtrów dla Listy Filmów. Powstał w celu zmniejszenia objętości komponentu MovieList.
+  #### Genre
+  Komponent dla konkretnego gatunku, którego ID jest przekazane przez usługę Routingu, pokazuje filmy należące do danej kategorii. Po kliknięciu na film użytkownik zostaje przeniesiony na stronę filmu. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
+  #### GenreList
+  Komponent wyświetla listę wszystkich kategorii. Po kliknięciu na gatunek użyutkownik zostaje przeniesiony na stronę gatunku. Wszystkie potrzebne dane komponent pobiera bezpośrednio z bazy.
+  #### login
+  Komponent obsługuje mechanizm logowania. Korzysta z usługi AuthenticationService.
+  #### MainPage
+  Komponent wyświetla karuzelę z kilkoma filmami. Przy pobieraniu filmów wykorzystuje usługę MovieService.
+  #### Movie
+  Komponent wyświetla podstawowe informacje o filmie. Działa w połączeniu z komponentem MovieList, który przekazuje do komponentu odpowiednie atrybuty filmu. Po kliknięciu na przycisk 'szczegóły' użytkownik zostaje przekierowany na stronę ze szczegółowymi informacjami o danym filmie.
+  #### MovieDetails
+  Komponent wyświetla szczegółowe informacje o filmie, którego ID jest przekazane przez usługę Routingu. Po naciśnięciu na gatunek, reżysera lub aktora użytkownik jest przenoszony na odpowiednią stronę. Wszystkie potrzebne dane (oprócz przekazanego ID filmu) komponent pobiera bezpośrednio z bazy.
+  #### MovieList
+  Komponent wyświetla listę wszystkich filmów. Obsługuje mechanizm filtrowania, Korzysta z usługi MovieService.
+  #### MovieRanking
+  Komponent działa analogicznie do komponentu MovieList, jednak pokazuje 100 najlepszych filmów pod względem średniej ocen oraz widoczną ocenę na każdym panelu.
+  #### Register
+  Komponent obsługuje machanizm rejestracji. Korzysta z usługi AuthenticationService
+  #### Toolbar
+  Komponent wyświetla pasek Menu. Stanowi nawigację po całej aplikacji.
