@@ -1,5 +1,6 @@
 # bazy-danych-2020
-#### Skład grupy: Anna Zając, Tomasz Rosiek (ta sama grupa laboratoryjna)
+#### Skład grupy: Anna Zając, Tomasz Rosiek
+#### Grupa laboratoryjna: czwartek 14.20 B
 ### Technologia:
   bazy grafowe (Neo4j)
 ## Temat projektu:
