@@ -3,9 +3,8 @@
 ### Technologia:
   bazy grafowe (Neo4j)
 ## Temat projektu:
-  aplikacja webowa do wyszukiwania i oceny filmów.  Filmy wyszukiwać będzie można na podstawie różnych parametrów, np. reżysera,          oceny, gatunku, kraju produkcji.
-### Część webowa:
-  Część webowa zostanie zrealizowana za pomocą Angulara.
+  aplikacja webowa do wyszukiwania i oceny filmów.  Filmy wyszukiwać będzie można na podstawie różnych parametrów, np. oceny, gatunku.
+### Projekt został wykonany we frameworku Angular 
   
 ---
 ## Opis aplikacji
@@ -16,7 +15,7 @@
   * [Neo4j](https://neo4j.com/download/)
 ## Przygotowanie:
   ### Uzyskanie bazy danych z pliku csv (Pomiń ten krok, jeśli już posiadasz gotową bazę danych).
-   1. Stwórz bazę danych w Neo4jDesktop i uruchom skrypt "complete_database.cypher"
+   1. Stwórz bazę danych w Neo4jDesktop i w Neo4jBrowser uruchom skrypt "complete_database.cypher"
    3. W przypadku problemów z uruchamianiem skryptu może być konieczne wykonywanie go w mniejszych częściach.
     
   ### Przygotowanie projektu Angular.
@@ -29,6 +28,8 @@
    6. w folderze movies-rating wykonaj polecenie 'ng serve'. Projekt domyślnie będzie dostępny na porcie localhost:4200/
    
   ## Schemat bazy danych
+  
+  ![Schemat bazy danych](https://github.com/tomros766/bazy-danych-2020/blob/master/img/arrows.svg "Schemat bazy danych")
   ![Graf reprezentujący bazę](https://github.com/tomros766/bazy-danych-2020/blob/master/img/graph1.png "Graf reprezentujący bazę")
   
    Baza danych obsługiwana przez aplikację składa się z czterech klas obiektów: Movie, Genre, Person, User. 
