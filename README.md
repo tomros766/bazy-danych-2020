@@ -146,10 +146,12 @@
   Serwis służy do rejestrowania nowych użytkowników w bazie oraz logowania już istniejących. Ma również możliwość pobierania bezpośrednio z bazy filmów, które dany użytkownik ocenił. Serwis korzysta z serwisu EncryptionService w celu kodowania haseł przesyłanych do bazy danych
   #### DatabaseService
   Serwis służy do bezpośredniego wykonywania zapytań w języku Cypher na bazie danych. W tym celu korzytsta z gotowego koponentu AngularNeo4jService, który upraszcza przesyłanie zapytań wraz ze zmiennymi. Serwis używany jest we wszytskich komponentach, które pobierają coś z bazy bądź wprowadzają do niej jakieś zmiany i nowe wartości
+  
   Link do dokumnetacji AngularNeo4jService: https://github.com/webmaxru/angular-neo4j
   #### EncryptionService
   Serwis służy do kodowania haseł, które następnie są przesyłane do bazy danych w postacji niejawnej. Korzysta z biblioteki CryptoJS w celu kodowania tekstu
-  Link do dokumnetacji CryptoJS: https://www.npmjs.com/package/crypto-j
+  
+  Link do dokumentacji CryptoJS: https://www.npmjs.com/package/crypto-j
   #### MovieService
   Serwis służy do obsługi zbioru filmów w bazie danych, jest używany w komponentach takich jak movie-list i movie-ranking. Umożliwia również zwrócenie posortowanego zbioru filmów do wyświetlenia ich w rankingu
   #### Router
