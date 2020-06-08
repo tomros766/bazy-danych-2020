@@ -30,7 +30,6 @@
   ## Schemat bazy danych
   
   ![Schemat bazy danych](https://github.com/tomros766/bazy-danych-2020/blob/master/img/arrows.svg "Schemat bazy danych")
-  ![Graf reprezentujący bazę](https://github.com/tomros766/bazy-danych-2020/blob/master/img/graph1.png "Graf reprezentujący bazę")
   
    Baza danych obsługiwana przez aplikację składa się z czterech klas obiektów: Movie, Genre, Person, User. 
    Poniżej znajduje się zestawienie atrybutów, które muszą być obecne w bazie, aby aplikacja działała poprawnie.
@@ -59,6 +58,20 @@
    * email (string)
    * password (string)
    * username (string)
+   
+   Relacje pomiędzy atrybutami:
+   ### WRITER
+   relacja pomiędzy klasami Movie oraz Person, określa scenarzystę filmu
+   ### DIRECTOR
+   relacja pomiędzy klasami Movie oraz Person, określa reżysera filmu
+   ### CAST_MEMBER
+   relacja pomiędzy klasami Movie oraz Person, określa członka obsady, w przypadku tej konkretnej bazy aktora występującego w filmie
+   ### HAS_GENRE
+   relacja pomiędzy klasami Genre oraz Movie, określa gatunek filmu
+   ### VOTED
+   relacja pomiędzy klasami User oraz Movie, określa czy użytkownik zagłosował na dany film; posiada atrybut vote, który przechowuję wystawioną ocenę
+   ## Przykładowy fragment bazy danych 
+   ![Graf reprezentujący bazę](https://github.com/tomros766/bazy-danych-2020/blob/master/img/graph1.png "Graf reprezentujący bazę")
   ## Komponenty
   ### Actor
   Komponent dla konkretnego aktora, którego ID jest przekazane przez usługę Routingu, pokazuje filmy, w których brał udział. Filmy można filtrować po minimalnej ocenie i gatunku. Po kliknięciu na film użytkownik zostaje przeniesiony na stronę filmu. Wszystkie potrzebne dane (oprócz przekazanego ID aktora) komponent pobiera bezpośrednio z bazy.
